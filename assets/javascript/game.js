@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
 //variable instantiations
 let userTotal = 0;
 let userTotalDiv = $("<div>");
@@ -32,7 +32,6 @@ for(let i = 0; i < 4; i++) {
         addToTotal: function() {
             userTotal = userTotal + this.value;
             userTotalDiv.text("Total: " + userTotal);
-            console.log(this.value);
         },
         winChecker: function() {
             if(userTotal === userGoal) {
@@ -41,6 +40,7 @@ for(let i = 0; i < 4; i++) {
                 userTotal = 0;
                 userGoal = Math.floor(Math.random()*50) + 30;
                 userGoalDiv.text("Goal: " + userGoal);
+                this.value = Math.floor(Math.random() * 20) + 1;
             }
             else if(userTotal > userGoal) {
                 losses++;
@@ -48,6 +48,7 @@ for(let i = 0; i < 4; i++) {
                 userTotal = 0;
                 userGoal = Math.floor(Math.random()*50) + 30;
                 userGoalDiv.text("Goal: " + userGoal);
+                this.value = Math.floor(Math.random() * 20) + 1;
             }
         },
     });
