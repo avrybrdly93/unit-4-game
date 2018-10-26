@@ -3,7 +3,7 @@ $(document).ready(function(){
 //variable instantiations
 let userTotal = 0;
 let userTotalDiv = $("<div>");
-let userGoal = Math.floor(Math.random()*50) + 30;
+let userGoal = Math.floor(Math.random()*102) + 19;
 let wins = 0;
 let losses = 0;
 let winsDiv = $("<div>");
@@ -27,7 +27,7 @@ lossesDiv.text("Losses: " + losses);
 //Creates an array of four crystal objects
 for(let i = 0; i < 4; i++) {
     crystals.push({
-        value: Math.floor(Math.random() * 20) + 1,
+        value: Math.floor(Math.random() * 12) + 1,
         divSelector: htmlDiv,
         addToTotal: function() {
             userTotal = userTotal + this.value;
@@ -38,17 +38,19 @@ for(let i = 0; i < 4; i++) {
                 wins++;
                 winsDiv.text("Wins: " + wins);
                 userTotal = 0;
-                userGoal = Math.floor(Math.random()*50) + 30;
+                userTotalDiv.text("Total: " + userTotal);
+                userGoal = Math.floor(Math.random() * 102) + 19;
                 userGoalDiv.text("Goal: " + userGoal);
-                this.value = Math.floor(Math.random() * 20) + 1;
+                this.value = Math.floor(Math.random() * 12) + 1;
             }
             else if(userTotal > userGoal) {
                 losses++;
                 lossesDiv.text("Losses: " + losses);
                 userTotal = 0;
-                userGoal = Math.floor(Math.random()*50) + 30;
+                userTotalDiv.text("Total: " + userTotal);
+                userGoal = Math.floor(Math.random()*102) + 19;
                 userGoalDiv.text("Goal: " + userGoal);
-                this.value = Math.floor(Math.random() * 20) + 1;
+                this.value = Math.floor(Math.random() * 12) + 1;
             }
         },
     });
